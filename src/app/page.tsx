@@ -99,13 +99,19 @@ export default function Home() {
                   loading ? "opacity-50" : ""
                 } ${email === "" ? "cursor-not-allowed bg-[#151515d6]" : ""}`}
               >
-                Join waitist
+                {loading ? "Joining..." : "Join the waitlist"}
               </button>
             </div>
           </div>
         </div>
         <div className="right xl:w-1/2 w-full items-center justify-center flex ">
-          <Image src={"/mockup.png"} alt="pokedex" width={350} height={350} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <Image src={"/mockup.png"} alt="pokedex" width={350} height={350} />
+          </motion.div>
         </div>
       </div>
     </main>
