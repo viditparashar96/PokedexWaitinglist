@@ -6,7 +6,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 export default function Home() {
   const [email, setEmail] = useState<string>("");
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+\.com$/;
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   const [loading, setLoading] = useState<boolean>(false);
   const handleSubmit = async () => {
     try {
@@ -87,7 +87,8 @@ export default function Home() {
                   onKeyDown={handleKeydown}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  type="email"
+                  type="text"
+                  name="email"
                   placeholder="Email Address"
                   className=" rounded-md w-full p-2 py-3 outline-none text-black"
                 />
